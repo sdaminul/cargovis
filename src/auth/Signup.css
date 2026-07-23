@@ -1,0 +1,283 @@
+/* =========================================================
+   Signup page — matches site palette (Index.css tokens)
+   ========================================================= */
+
+.nexus-signup {
+  position: relative;
+  min-height: calc(100vh - 165px);
+  background: #0f1424;
+  background-image:
+    radial-gradient(ellipse 60% 45% at 12% 8%, rgba(249, 123, 61, 0.16), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 92% 92%, rgba(99, 102, 241, 0.18), transparent 70%);
+  color: #e2e8f0;
+  overflow: hidden;
+}
+.nexus-signup::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(140, 155, 210, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 155, 210, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events: none;
+}
+.nexus-signup > * { position: relative; }
+
+.nexus-signup .nexus-header {
+  border-bottom: 1px solid #1e293b;
+}
+.nexus-signup .nexus-logo {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #1e2648, #161c36);
+  color: #fb923c;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(249, 123, 61, 0.3);
+}
+
+/* ---------- Step chips ---------- */
+.nexus-signup .step-label-active {
+  color: #ffa15c;
+  background: rgba(249, 123, 61, 0.12);
+  border: 1px solid rgba(249, 123, 61, 0.35);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.nexus-signup .step-label-inactive {
+  color: #64748b;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+/* ---------- Panel ---------- */
+.nexus-signup .nexus-panel {
+  position: relative;
+  background: linear-gradient(160deg, #0a1a3a 0%, #061633 100%) !important;
+  border: 1px solid #252F60 !important;
+  border-radius: 22px;
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 10, 0.75),
+    0 8px 24px -12px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  animation: nxIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.nexus-signup .nexus-panel::before {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: 22px;
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(249, 123, 61, 0.35), transparent 40%, transparent 60%, rgba(99, 102, 241, 0.25));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none; opacity: 0.55;
+}
+.nexus-signup .nexus-panel.card {
+  padding: 40px 40px;
+}
+@keyframes nxIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ---------- Card header (reuse login-header inside panel) ---------- */
+.nexus-signup .login-header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.nexus-signup .login-header h1 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  color: #f2f4fb;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.nexus-signup .login-header p {
+  color: #9aa3c4;
+  font-size: 14.5px;
+  margin: 0;
+}
+
+/* ---------- Inputs ---------- */
+.nexus-signup .form-control,
+.nexus-signup .form-select {
+  background: rgba(11, 29, 56, 0.75) !important;
+  border: 1px solid #21275F !important;
+  color: #f2f4fb !important;
+  border-radius: 11px !important;
+  font-size: 14.5px !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.nexus-signup .form-control::placeholder { color: #6b7495; }
+.nexus-signup .form-control:focus,
+.nexus-signup .form-select:focus {
+  border-color: #f97b3d !important;
+  box-shadow: 0 0 0 4px rgba(249, 123, 61, 0.15) !important;
+  background: rgba(11, 29, 56, 0.95) !important;
+  color: #f2f4fb !important;
+}
+.nexus-signup .form-control.is-invalid,
+.nexus-signup .form-select.is-invalid {
+  border-color: #fc8181 !important;
+  background-image: none !important;
+}
+
+.nexus-signup .input-group-text {
+  background: transparent;
+  border: 0;
+  color: #9aa3c4;
+}
+
+/* Icon-prefixed inputs (authform) */
+.authform { --icon-w: 42px; }
+.nexus-signup .authform .input-group-text {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: var(--icon-w);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 4;
+  pointer-events: none;
+}
+.nexus-signup .authform .input-group-text i { font-size: 18px; color: #9aa3c4; transition: color 0.2s; }
+.nexus-signup .authform .input-group { position: relative; }
+.nexus-signup .authform .input-group:focus-within .input-group-text i { color: #f97b3d; }
+.nexus-signup .authform .form-control {
+  border-radius: 9px !important;
+  padding-left: var(--icon-w) !important;
+}
+
+/* Text hint under fields */
+.nexus-signup .text-xs { font-size: 0.78rem; }
+.nexus-signup .text-muted-slate { color: #9aa3c4; }
+.nexus-signup .invalid-feedback { color: #fca5a5; }
+.link-orange {
+  color: #f97316;
+  font-weight: 500;
+}
+.link-orange:hover {
+  color: #ffa15c;
+}
+/* ---------- Role cards ---------- */
+.nexus-signup .role-card {
+  background: rgba(11, 29, 56, 0.55);
+  border: 1px solid #252F60;
+  border-radius: 16px;
+  text-align: left;
+  width: 100%;
+  padding: 18px !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.nexus-signup .role-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 123, 61, 0.55);
+  background: rgba(15, 23, 42, 0.75);
+  box-shadow: 0 18px 40px -20px rgba(249, 123, 61, 0.4);
+}
+.nexus-signup .role-card:hover .role-icon {
+  color: #ffa15c;
+  border-color: rgba(249, 123, 61, 0.5);
+  background: linear-gradient(160deg, #1e2648, #14213e);
+}
+.nexus-signup .role-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #1e2648, #161c36);
+  color: #cbd5e1;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #21275F;
+  transition: all 0.2s ease;
+}
+.icow { width: 22px; height: 22px; transition: transform 0.2s ease; color: #6b7495; }
+.nexus-signup .role-card:hover .icow { transform: translateX(4px); color: #ffa15c; }
+
+/* ---------- Section eyebrows ---------- */
+.nexus-signup .section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffa15c !important;
+  text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.nexus-signup .section-eyebrow::before {
+  content: "";
+  width: 22px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, #f97b3d, #ffa15c);
+}
+
+/* ---------- Checks ---------- */
+.nexus-signup .form-check-input {
+  background-color: rgba(11, 29, 56, 0.75);
+  border-color: #334155;
+}
+.nexus-signup .form-check-input:checked {
+  background-color: #f97316;
+  border-color: #f97316;
+}
+.nexus-signup .form-check-input:focus {
+  border-color: #f97b3d;
+  box-shadow: 0 0 0 3px rgba(249, 123, 61, 0.2);
+}
+.nexus-signup .form-check-label { color: #cbd5e1; font-size: 14px; }
+
+/* ---------- Services dropdown ---------- */
+.ouegsa {
+  background-color: rgba(11, 29, 56, 0.75);
+  border: 1px solid #21275F;
+  border-radius: 11px;
+  padding: 10px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ouegsa:hover { border-color: #334972; }
+.ouegsa[open] {
+  border-color: #f97b3d !important;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+}
+.poeyx {
+  position: absolute;
+  right: 14px; top: 12px;
+  font-size: 20px;
+  color: #9aa3c4;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+.ouegsa[open] ~ .poeyx,
+details[open].ouegsa + .poeyx { transform: rotate(180deg); }
+
+/* ---------- Check panels ---------- */
+.checkpanel {
+  background: rgba(11, 29, 56, 0.6) !important;
+  border: 1px solid #252F60 !important;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.checkpanel:hover { border-color: rgba(249, 123, 61, 0.45); }
+.checkpanel:has(.form-check-input:checked) {
+  border-color: rgba(249, 123, 61, 0.6);
+  background: rgba(249, 123, 61, 0.06) !important;
+}
+
+/* ---------- Textarea ---------- */
+.nexus-signup textarea.form-control { min-height: 100px; }
+
+/* ---------- Utility ---------- */
+.nexus-signup .step-connect { color: #334155; }
+.zeopad {
+  padding: 0px;
+}
+@media (max-width: 600px) {
+  .zeopad {
+    padding: 0px 20px;
+  }
+  .insactive {
+    display: none;
+  }
+}
