@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Container } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
-
-const navigate = useNavigate();
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -61,7 +58,7 @@ const Login = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
       console.log('Login successful:', formData);
-      navigate('/shipper');
+      window.location.href = '/shipper';
     } catch (error) {
       console.error('Login error:', error);
       alert('Login failed. Please try again.');
