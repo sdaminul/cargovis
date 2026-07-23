@@ -280,4 +280,7 @@ details[open].ouegsa + .poeyx { transform: rotate(180deg); }
   .insactive {
     display: none;
   }
+  .nexus-signup .nexus-panel.card {
+    padding: 20px;
+  }
 }
