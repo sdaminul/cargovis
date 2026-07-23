@@ -581,6 +581,11 @@ thead.table-light tr {
   border-right: 1px solid #21275F !important;
   border-bottom: 1px solid #21275F !important;
 }
+.quote-card.card .quote-row {
+  border: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
 .quotes-head {
   padding: 12px 18px;
   margin-bottom: 16px;
